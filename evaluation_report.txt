@@ -1,0 +1,222 @@
+📊 Найдено файлов для комплексного анализа: 14
+============================================================
+
+🔹 ФАЙЛ [1/14]: broken_empty.diff (Chaos / Stress Test)
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.98s). Найдено изменений: 0
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.98s)
+      Commit: CommitType.CHORE(general): update project configuration
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.28s)
+      PR Title: Fix broken empty diff file
+      PR Description:
+Исправление ошибки в файле broken_empty.diff, связанной с пустым или поврежденным содержимым изменений.
+============================================================
+
+🔹 ФАЙЛ [2/14]: broken_garbage.diff (Chaos / Stress Test)
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.26s). Найдено изменений: 0
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.3s)
+      Commit: CommitType.CHORE(general): update project configuration
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (1.47s)
+      PR Title: Fix broken garbage diff
+      PR Description:
+Исправлены ошибки в файле broken_garbage.diff. Проведена очистка и коррекция содержимого файла для обеспечения его валидности.
+============================================================
+
+🔹 ФАЙЛ [3/14]: broken_huge.diff (Chaos / Stress Test)
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.98s). Найдено изменений: 5
+      - [ActionType.ADDED] None: Добавлены строки 'line added without proper context 1', 'line added without proper context 2' и 'line added without proper context 3' в начале файла.
+      - [ActionType.REMOVED] None: Удалены строки 'line removed randomly 1' и 'line removed randomly 2'.
+      - [ActionType.ADDED] None: Добавлены строки 'line added 4', 'line added 5' и 'line added 6'.
+      - [ActionType.REMOVED] None: Удалена строка 'line removed 3'.
+      - [ActionType.ADDED] None: Добавлены строки с данными 'random_garbage_data_line_1001', 'random_garbage_data_line_1002' и 'random_garbage_data_line_1003'.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.52s)
+      Commit: CommitType.CHORE(data): update file content with added and removed lines
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (1.26s)
+      PR Title: Refactor data lines and remove obsolete entries
+      PR Description:
+Внесены изменения в структуру данных файла. Добавлены новые строки контекста и данные (включая строки с префиксом random_garbage_data), а также удалены устаревшие и случайные записи для оптимизации содержимого.
+============================================================
+
+🔹 ФАЙЛ [4/14]: hf_diff_01.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.72s). Найдено изменений: 2
+      - [ActionType.CHANGED] None: Заменена ручная вычисление атомных долей элементов на вызов метода pd_coords для получения координат в диаграмме фаз в методе PDAnalyzer.
+      - [ActionType.CHANGED] None: Обновлена логика получения координат для двух составов (comp1 и comp2) с использованием метода pd_coords вместо явного извлечения атомных долей.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.45s)
+      Commit: CommitType.REFACTOR(pd-analyzer): replace manual atomic fraction calculation with pd_coords method
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.78s)
+      PR Title: Refactor PDAnalyzer to use pd_coords for phase diagram coordinates
+      PR Description:
+Заменена ручная вычисление атомных долей элементов на вызов метода pd_coords для получения координат в диаграмме фаз в методе PDAnalyzer. Обновлена логика получения координат для двух составов (comp1 и comp2) с использованием метода pd_coords вместо явного извлечения атомных долей.
+============================================================
+
+🔹 ФАЙЛ [5/14]: hf_diff_02.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.69s). Найдено изменений: 3
+      - [ActionType.CHANGED] None: В функции connectNewServers изменена обработка состояния DESTROYED или UNREFERENCED: теперь вызывается this.destroy({ force: true }) и возвращается done(), вместо возврата результата destroy.
+      - [ActionType.REMOVED] None: Удалена дублирующая проверка состояния DESTROYED или UNREFERENCED внутри обработчика события 'connect'.
+      - [ActionType.CHANGED] None: В блоке обработки существующего сервера изменен порядок выполнения: теперь вызывается return done() вместо последовательного вызова done() и return.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.68s)
+      Commit: CommitType.FIX(server-connection): handle destroyed state and remove duplicate checks in connectNewServers
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.43s)
+      PR Title: Fix server connection state handling and callback execution
+      PR Description:
+Исправлена логика обработки состояний серверов в функции connectNewServers. Теперь при обнаружении состояния DESTROYED или UNREFERENCED выполняется принудительное уничтожение объекта (force: true) с корректным завершением через done(). Удалена дублирующая проверка состояний внутри обработчика события 'connect'. Также исправлен порядок выполнения в блоке обработки существующего сервера: теперь вызывается return done() для корректного завершения асинхронного потока.
+============================================================
+
+🔹 ФАЙЛ [6/14]: hf_diff_03.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (2.27s). Найдено изменений: 1
+      - [ActionType.ADDED] None: Добавлена проверка на наличие данных в локальном репозитории GPM. Если данные отсутствуют, выводится сообщение об ошибке с рекомендациями по очистке кэша и повторному запуску команды, а также ссылка на документацию по устранению неполадок, после чего выполнение скрипта прекращается.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.27s)
+      Commit: CommitType.FIX(gpm): handle missing local repository data with error message and exit
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (1.48s)
+      PR Title: Add GPM local repository data validation
+      PR Description:
+Добавлена проверка наличия данных в локальном репозитории GPM. При отсутствии данных скрипт выводит сообщение об ошибке с рекомендациями по очистке кэша и повторному запуску, а также ссылку на документацию по устранению неполадок, после чего прекращает выполнение.
+============================================================
+
+🔹 ФАЙЛ [7/14]: hf_diff_04.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.83s). Найдено изменений: 1
+      - [ActionType.CHANGED] None: Изменена логика обработки формата HDREF: теперь пересчет вкладки ссылок выполняется только если набор идентификаторов записей (recIDs) не пуст.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.39s)
+      Commit: CommitType.FIX(hdref): recalculate links tab only when recIDs are not empty
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.34s)
+      PR Title: Fix HDREF tab recalculation logic for empty record sets
+      PR Description:
+Обновлена логика обработки формата HDREF. Теперь пересчет вкладки ссылок выполняется только в том случае, если набор идентификаторов записей (recIDs) не пуст. Это предотвращает лишние вычисления при отсутствии данных.
+============================================================
+
+🔹 ФАЙЛ [8/14]: hf_diff_05.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.73s). Найдено изменений: 1
+      - [ActionType.ADDED] None: Добавлен метод isEmpty() в класс TwigSupraBlockGlobal для проверки, является ли значение свойства блока пустым.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.39s)
+      Commit: CommitType.FEAT(twig-supra-block): add isEmpty method to TwigSupraBlockGlobal
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.83s)
+      PR Title: Add isEmpty method to TwigSupraBlockGlobal
+      PR Description:
+Добавлен метод isEmpty() в класс TwigSupraBlockGlobal. Метод предназначен для проверки, является ли значение свойства блока пустым, что упрощает логику обработки данных в шаблонах.
+============================================================
+
+🔹 ФАЙЛ [9/14]: hf_diff_06.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.38s). Найдено изменений: 1
+      - [ActionType.ADDED] None: Добавлен тест для проверки сериализации и десериализации Map с опцией useTag259ForMaps, установленной в true.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.33s)
+      Commit: CommitType.TEST(serialization): add test for Map serialization with useTag259ForMaps enabled
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.94s)
+      PR Title: Add test for Map serialization with useTag259ForMaps
+      PR Description:
+Добавлен новый тест для проверки корректности процессов сериализации и десериализации объектов типа Map. Тест специфично проверяет сценарий, когда опция useTag259ForMaps установлена в true, что позволяет убедиться в правильном поведении кода при использовании данного флага.
+============================================================
+
+🔹 ФАЙЛ [10/14]: hf_diff_07.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.77s). Найдено изменений: 2
+      - [ActionType.CHANGED] None: Заменен импорт утилиты обратной совместимости: вместо experimental_class_warning теперь используется декоратор experimental.
+      - [ActionType.CHANGED] None: Класс EcsRunLauncher теперь декорирован @experimental, а вызов experimental_class_warning в конструкторе удален.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.6s)
+      Commit: CommitType.REFACTOR(ecs): replace experimental_class_warning with experimental decorator in EcsRunLauncher
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.38s)
+      PR Title: Refactor EcsRunLauncher to use experimental decorator
+      PR Description:
+Обновлена система предупреждений об экспериментальном статусе класса EcsRunLauncher. Вместо ручного вызова утилиты experimental_class_warning в конструкторе теперь используется декоратор @experimental. Это упрощает код и унифицирует подход к маркировке экспериментальных компонентов.
+============================================================
+
+🔹 ФАЙЛ [11/14]: hf_diff_08.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.89s). Найдено изменений: 2
+      - [ActionType.CHANGED] None: Переименован список зависимостей 'requires' в 'tests_require' и добавлены пакеты для тестирования (nose, asynctest, mock, pytz, tzlocal, imaplib2, docutils).
+      - [ActionType.CHANGED] None: Параметр 'install_requires' в функции setup() очищен (установлен пустой список), а новый параметр 'tests_require' привязан к списку тестовых зависимостей.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.22s)
+      Commit: CommitType.CHORE(setup): rename requires to tests_require and clear install_requires
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.85s)
+      PR Title: Refactor setup.py to separate test dependencies
+      PR Description:
+Выполнено рефакторинг файла конфигурации установки пакета. Список зависимостей переименован из 'requires' в 'tests_require' для явного указания тестовых библиотек (nose, asynctest, mock, pytz, tzlocal, imaplib2, docutils). Параметр 'install_requires' в функции setup() очищен, а новый параметр 'tests_require' привязан к списку тестовых зависимостей, что позволяет корректно разделять основные и тестовые требования при установке.
+============================================================
+
+🔹 ФАЙЛ [12/14]: hf_diff_09.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.89s). Найдено изменений: 2
+      - [ActionType.CHANGED] None: Изменена маппинг команды LC_LAZY_LOAD_DYLIB с базового класса LoadCommand на специализированный DylibCommand.
+      - [ActionType.CHANGED] None: Изменена маппинг команды LC_LOAD_UPWARD_DYLIB с базового класса LoadCommand на специализированный DylibCommand.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (0.63s)
+      Commit: CommitType.REFACTOR(load-command): map LC_LAZY_LOAD_DYLIB and LC_LOAD_UPWARD_DYLIB to DylibCommand
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.63s)
+      PR Title: Refactor dylib load command mappings to use DylibCommand
+      PR Description:
+Обновлена логика маппинга команд загрузки динамических библиотек. Команды LC_LAZY_LOAD_DYLIB и LC_LOAD_UPWARD_DYLIB теперь используют специализированный класс DylibCommand вместо базового LoadCommand, что обеспечивает более точную обработку атрибутов данных.
+============================================================
+
+🔹 ФАЙЛ [13/14]: hf_diff_10.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.71s). Найдено изменений: 1
+      - [ActionType.CHANGED] None: Исправлена логика потребления токена в Bucket4jThrottledRequestExecutor: теперь при неблокирующем режиме (blocking=false) вызывается метод tryConsume(1) без ожидания, а не дублируется вызов после блока if.
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (1.39s)
+      Commit: CommitType.FIX(throttling): correct non-blocking token consumption logic in Bucket4jThrottledRequestExecutor
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.67s)
+      PR Title: Fix token consumption logic in Bucket4jThrottledRequestExecutor
+      PR Description:
+Исправлена логика потребления токенов в компоненте Bucket4jThrottledRequestExecutor. Теперь в неблокирующем режиме (blocking=false) корректно вызывается метод tryConsume(1) без ожидания, что устраняет дублирование вызова после блока if.
+============================================================
+
+🔹 ФАЙЛ [14/14]: huge_multimodule.diff 
+------------------------------------------------------------
+⏳ Шаг 1: Выполнение analyze-diff...
+   ✅ Успешно (0.59s). Найдено изменений: 3
+      - [ActionType.ADDED] None: Добавлена инициализация пула миграций в функции подключения к базе данных (ConnectDB) и определена заглушка функции runMigrations.
+      - [ActionType.CHANGED] None: Обновлена логика входа (Login): теперь генерируются отдельные Access и Refresh токены, а сессия асинхронно сохраняется в Redis.
+      - [ActionType.ADDED] None: Добавлены новые маршруты API для обновления токена (/refresh) и выхода из системы (/logout).
+⏳ Шаг 2: Выполнение generate-commit...
+   ✅ Успешно (8.57s)
+      Commit: CommitType.FEAT(auth): implement token rotation, session persistence, and migration pool initialization
+⏳ Шаг 3: Выполнение generate-pr...
+   ✅ Успешно (0.57s)
+      PR Title: Implement JWT token rotation and migration pool initialization
+      PR Description:
+Реализована система управления токенами доступа и обновления (Access/Refresh) с асинхронным сохранением сессий в Redis. Добавлены новые API-маршруты для обновления токена (/refresh) и выхода из системы (/logout). Также инициализирован пул миграций в функции подключения к базе данных (ConnectDB) с определением заглушки runMigrations.
+============================================================
